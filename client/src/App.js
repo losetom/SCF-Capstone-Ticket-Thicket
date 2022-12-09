@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginForm from "./components/LoginForm";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,18 +12,18 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
       <div className="App">
-        <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
+        <Routes>
+          <Route path="/testing" element={<div>Testing</div>}>
+        
           </Route>
-          <Route path="/">
-            <h1>Page Count: {count}</h1>
+          <Route path="/" element={<h1>Page Count: {count}</h1>}>
+            
           </Route>
-        </Switch>
+
+          <Route path="/login" element={<LoginForm />} />
+        </Routes>
       </div>
-    </BrowserRouter>
   );
 }
 
