@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginForm from "./components/LoginForm";
+import Login from "./components/Login";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,7 +21,7 @@ function App() {
             
           </Route>
 
-          <Route path="/login" element={<LoginForm />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
   );
