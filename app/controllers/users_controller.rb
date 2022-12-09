@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
    # rescue_from(ActiveRecord::RecordInvalid, {with: :render_unprocessable} )
-    before_action(:check_logged_in_user, only: :index)
-    skip_before_action :check_logged_in_user, only: :create
+    before_action(:check_logged_in_user, only: [:index, :show])
+    skip_before_action :check_logged_in_user, only: [:create, :show]
 
     def check_logged_in_user
         @current_user = User.find_by(id: session[:user_id])
@@ -22,6 +22,10 @@ class UsersController < ApplicationController
         session[:user_id] = user.id
     # Respond to client with JSON and status 
         render json: user, status: :created
+    end
+
+    def show
+        render json: @current_user
     end
 
 
