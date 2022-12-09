@@ -15,7 +15,7 @@ const UserProvider = ({ children }) => {
             if(response.ok) {
                 response.json().then((tickets) => {
                     setTickets([...tickets])
-                    navigate("/")
+                    // navigate("/")
                 });
             } else {
                 response.json().then(({ errors }) => {

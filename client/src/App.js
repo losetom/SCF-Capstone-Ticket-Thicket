@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginForm from "./components/LoginForm";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,6 +20,8 @@ function App() {
           <Route path="/" element={<h1>Page Count: {count}</h1>}>
             
           </Route>
+
+          <Route path="/login" element={<LoginForm />} />
         </Routes>
       </div>
   );
