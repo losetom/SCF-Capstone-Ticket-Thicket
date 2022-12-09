@@ -1,26 +1,23 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./components/Login";
+
+import Login from "./components/Auth/Login";
+import Signup from "./components/Auth/Signup";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("/hello")
+    fetch("/me")
       .then((r) => r.json())
-      .then((data) => setCount(data.count));
+      .then((data) => setUser(data.count));
   }, []);
 
   return (
       <div className="App">
         <Routes>
-          <Route path="/testing" element={<div>Testing</div>}>
-        
-          </Route>
-          <Route path="/" element={<h1>Page Count: {count}</h1>}>
-            
-          </Route>
-
+          <Route path="/testing" element={<div>Testing</div>} />
+          <Route path="/" element={<h1>Home</h1>} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>
