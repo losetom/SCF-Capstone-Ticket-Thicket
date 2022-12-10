@@ -11,19 +11,34 @@ import {
   }
   from 'mdb-react-ui-kit';
 
-function LoginForm() {
-    const [userData, setUserData] = useState({
-        email: "",
-        password: "",
-        password_confirmation: ""
-    })
+function Login() {
+  const [loginCredentials, setLoginCredentials] = useState({
+    email: "",
+    password: ""
+  })
 
-    const handleInputChange = (e) => {
-        const stateCopy = {...userData}
-        debugger
+  const handleInputChange = (e) => {
+    const stateCopy = {...loginCredentials}
+    stateCopy[e.target.name] = e.target.value
+    setLoginCredentials(stateCopy)
+}
+
+  const handleLoginSubmit = () => {
+    const config = {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(loginCredentials)
     }
+    fetch('/login', config)
+      .then((response) => {
+        if (response.ok){
+          response.json()
+          .then((user) => console.log(user))
+        }
+      })
+  }
 
-  return (
+return (
     <MDBContainer fluid>
 
       <MDBRow className='d-flex justify-content-center align-items-center h-100'>
@@ -35,8 +50,8 @@ function LoginForm() {
               <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
               <p className="text-white-50 mb-5">Please enter your login and password!</p>
 
-              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Email address' id='formControlLg' type='email' size="lg"/>
-              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Password' id='formControlLg' type='password' size="lg"/>
+              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Email address' id='loginEmail' type='email' name='email' value={loginCredentials.email} onChange={handleInputChange} size="lg"/>
+              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Password' id='loginPassword' type='password' name='password' value={loginCredentials.password} onChange={handleInputChange} size="lg"/>
 
               <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
               <MDBBtn outline className='mx-2 px-5' color='white' size='lg'>
@@ -58,7 +73,7 @@ function LoginForm() {
               </div>
 
               <div>
-                <p className="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a></p>
+                <p className="mb-0">Don't have an account? <a href="/signup" class="text-white-50 fw-bold">Sign Up</a></p>
 
               </div>
             </MDBCardBody>
@@ -71,4 +86,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm
+export default Login
