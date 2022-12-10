@@ -11,7 +11,7 @@ import {
   }
   from 'mdb-react-ui-kit';
 
-function Login() {
+function Login( {setUser} ) {
   const [loginCredentials, setLoginCredentials] = useState({
     email: "",
     password: ""
@@ -30,11 +30,13 @@ function Login() {
       body: JSON.stringify(loginCredentials)
     }
     fetch('/login', config)
-      .then((response) => {
-        if (response.ok){
-          response.json()
-          .then((user) => console.log(user))
-        }
+      .then((response) => response.json())
+      .then(user => {
+        setLoginCredentials({
+          email: "",
+          password: ""
+        })
+        setUser(user)
       })
   }
 
@@ -53,8 +55,8 @@ return (
               <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Email address' id='loginEmail' type='email' name='email' value={loginCredentials.email} onChange={handleInputChange} size="lg"/>
               <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Password' id='loginPassword' type='password' name='password' value={loginCredentials.password} onChange={handleInputChange} size="lg"/>
 
-              <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
-              <MDBBtn outline className='mx-2 px-5' color='white' size='lg'>
+              <p className="small mb-3 pb-lg-2"><a className="text-white-50" href="#!">Forgot password?</a></p>
+              <MDBBtn outline className='mx-2 px-5' color='white' size='lg' onClick={handleLoginSubmit}>
                 Login
               </MDBBtn>
 
