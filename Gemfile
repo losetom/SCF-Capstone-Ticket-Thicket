@@ -32,3 +32,7 @@ end
 
 
 gem "active_model_serializers", "~> 0.10.13"
+
+gem "faker", "~> 3.0"
+
+gem "pry", "~> 0.14.1"

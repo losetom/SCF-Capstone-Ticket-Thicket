@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
     has_many :tickets
-    belongs_to :artist
+    has_many :users, through: :tickets
+    has_one :artist
 end
