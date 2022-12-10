@@ -1,10 +1,11 @@
 class SessionsController < ApplicationController
-  skip_before_action
+  skip_before_action(:current_user)
 
   # /login
   def create
     # find a user by username
-    user = User.find_by(username: params[:username])
+    user = User.find_by(email: params[:email])
+    # binding.pry
     # verify that the user is who they say they are by checking the password is correct
     if user && user.authenticate(params[:password])
       # set the session[:user_id] to the found and authorized user
