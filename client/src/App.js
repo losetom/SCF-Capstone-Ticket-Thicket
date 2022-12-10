@@ -24,6 +24,7 @@ function App() {
           <Route path="/tickets" element={<h1>tickets...</h1>} />
           <Route path="/events" element={<h1>Events....</h1>} />
           <Route path="/tickets/new" element={<h1>Post a ticket...</h1>} />
+          <Route path="/tickets/edit" element={<h1>Change your ticket...</h1>} />
         </Routes>
       </div>
   );
