@@ -3,11 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
-import NavBar from "./components/NavBar/NavBar";
 
 function App() {
   const [user, setUser] = useState({
-    email: ""
+    username: ""
   });
 
   useEffect(() => {
@@ -19,9 +18,12 @@ function App() {
   return (
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login  />} />
+          <Route path="/" element={<Home user={user} />} />
           <Route path="/signup" element={<Signup setUser={setUser} />} />
+          <Route path="/login" element={<Login  />} />
+          <Route path="/tickets" element={<h1>tickets...</h1>} />
+          <Route path="/events" element={<h1>Events....</h1>} />
+          <Route path="/tickets/new" element={<h1>Post a ticket...</h1>} />
         </Routes>
       </div>
   );

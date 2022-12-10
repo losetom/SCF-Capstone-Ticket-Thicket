@@ -44,7 +44,7 @@ function Signup({ setUser }) {
     return (
         <MDBContainer fluid className='d-flex align-items-center justify-content-center bg-image' style={{backgroundImage: 'url(https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp)'}}>
             <form onSubmit={handleFormSubmit}>
-                <input type='submit'></input>
+                
             </form>
           <div className='mask gradient-custom-3'></div>
           <MDBCard className='m-5' style={{maxWidth: '600px'}}>
