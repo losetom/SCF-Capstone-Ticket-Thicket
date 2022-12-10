@@ -18,6 +18,8 @@ class UsersController < ApplicationController
     def create
     # Create var - save newly created instance using the params
         user = User.create!(user_params)
+    # If user was created
+        if user && user.valid?
     # Set our session[:user_id] -> log a user in on the backend
         session[:user_id] = user.id
     # Respond to client with JSON and status 
@@ -36,7 +38,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.permit(:email, :password, :password_confirmation)
+        params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end
 
 end

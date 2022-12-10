@@ -13,11 +13,16 @@ import {
 
 function LoginForm() {
     const [userData, setUserData] = useState({
-        username: "",
         email: "",
-        password: ""
+        password: "",
+        password_confirmation: ""
     })
-    
+
+    const handleInputChange = (e) => {
+        const stateCopy = {...userData}
+        debugger
+    }
+
   return (
     <MDBContainer fluid>
 
