@@ -10,7 +10,10 @@ function TicketCardContainer() {
     <div className='card-container'>
         {tickets.map((ticket) => {
             return (
-                <h1></h1>
+                <TicketCard
+                    key={uuidv4()}
+                    ticket={ticket}
+                />
             );
         })}
     </div>

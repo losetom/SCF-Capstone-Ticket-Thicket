@@ -1,13 +1,16 @@
 class TicketsController < ApplicationController
+    # /GET
     def index
         render json: Ticket.all
     end
 
+    # /POST
     def create
         ticket = Ticket.create!(ticket_params)
         render json: ticket, status: :created
     end
 
+    # /PATCH
     def update
         ticket = Ticket.find_by(id: params[:id])
         if ticket
@@ -18,6 +21,7 @@ class TicketsController < ApplicationController
         end
     end
 
+    # /GET/id
     def show
         ticket = Ticket.find_by(id: params[:id])
         if ticket
@@ -27,6 +31,7 @@ class TicketsController < ApplicationController
         end
     end
 
+    # /DELETE
     def destroy
         ticket = Ticket.find_by(id: params[:id])
         if ticket 

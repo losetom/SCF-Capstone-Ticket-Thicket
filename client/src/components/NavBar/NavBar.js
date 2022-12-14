@@ -55,12 +55,12 @@ function NavBar() {
                 <MDBNavbarItem>
                   <MDBDropdown>
                     <MDBDropdownToggle tag='a' className='nav-link' role='button'>
-                      Dropdown
+                      More...
                     </MDBDropdownToggle>
                     <MDBDropdownMenu>
-                      <MDBDropdownItem link>Action</MDBDropdownItem>
-                      <MDBDropdownItem link>Another action</MDBDropdownItem>
-                      <MDBDropdownItem link>Something else here</MDBDropdownItem>
+                      <MDBDropdownItem href='/tickets'>Tickets</MDBDropdownItem>
+                      <MDBDropdownItem link>Sell Tickets</MDBDropdownItem>
+                      <MDBDropdownItem onClick={handleLogoutClick}>Logout</MDBDropdownItem>
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 </MDBNavbarItem>
@@ -76,5 +76,5 @@ function NavBar() {
         </MDBNavbar>
       );
 }
-
+// https://static.vecteezy.com/system/resources/previews/003/284/622/non_2x/retro-ticket-in-vintage-style-vector.jpg
 export default NavBar

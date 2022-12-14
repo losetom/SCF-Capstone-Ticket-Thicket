@@ -5,15 +5,16 @@ import { UserContext } from "./context/UserProvider";
 import Home from "./components/Home";
 import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
+import TicketCardContainer from "./components/TicketCardContainer";
 
 function App() {
   const { onUserLogin, errors, user, setUser} = useContext(UserContext);
 
   // useEffect(() => {
-  //   fetch("/me")
+  //   fetch("/tickets")
   //     .then((r) => r.json())
-  //     .then((data) => setUser(data));
-  // }, []);
+  //     .then((data) => console.log(data));
+  // }, [])
 
   return (
       <div className="App">
@@ -21,7 +22,7 @@ function App() {
           <Route path="/" element={<Home user={user} />} />
           <Route path="/signup" element={<Signup setUser={setUser} />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/tickets" element={<h1>tickets...</h1>} />
+          <Route path="/tickets" element={<TicketCardContainer />} />
           <Route path="/events" element={<h1>Events....</h1>} />
           <Route path="/tickets/new" element={<h1>Post a ticket...</h1>} />
         </Routes>
