@@ -10,6 +10,11 @@ const UserProvider = ({ children }) => {
 
     const navigate = useNavigate();
 
+    const handleErrors = (err) => {
+      setErrors([...err])
+      setTimeout(() => setErrors([]), 3000)
+    }
+
     const fetchTickets = () => {
         fetch("/tickets").then((response) => {
             if(response.ok) {
@@ -19,11 +24,33 @@ const UserProvider = ({ children }) => {
                 });
             } else {
                 response.json().then(({ errors }) => {
-                    setErrors([...errors])
+                    handleErrors([...errors])
                 });
             }
         });
     }
+
+    const onUserLogin = (credentials) => {
+      const config = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+      };
+      fetch("/login", config).then((resp) => {
+        if (resp.ok) {
+          resp.json().then((user) => {
+            setUser({ ...user });
+            fetchTickets()
+          });
+        } else {
+          resp.json().then(({ errors }) => {
+            setErrors([...errors]);
+          });
+        }
+      });
+    };
 
     useEffect(() => {
         fetch("/me").then((response) => {
@@ -39,29 +66,8 @@ const UserProvider = ({ children }) => {
               });
             }
         });
-      }, []);
+      }, [navigate]);
 
-      const onUserLogin = (credentials) => {
-        const config = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(credentials),
-        };
-        fetch("/login", config).then((resp) => {
-          if (resp.ok) {
-            resp.json().then((user) => {
-              setUser({ ...user });
-              fetchTickets()
-            });
-          } else {
-            resp.json().then(({ errors }) => {
-              setErrors([...errors]);
-            });
-          }
-        });
-      };
 
 return( 
       <UserContext.Provider 

@@ -10,12 +10,14 @@ import {
     MDBIcon
   }
   from 'mdb-react-ui-kit';
+import { useNavigate } from 'react-router-dom';
 
 function Login( {setUser} ) {
   const [loginCredentials, setLoginCredentials] = useState({
     email: "",
     password: ""
   })
+  const navigate = useNavigate()
 
   const handleInputChange = (e) => {
     const stateCopy = {...loginCredentials}
@@ -32,11 +34,15 @@ function Login( {setUser} ) {
     fetch('/login', config)
       .then((response) => response.json())
       .then(user => {
+        console.log(user)
+        setUser(user)
+        navigate("/")
         setLoginCredentials({
           email: "",
           password: ""
         })
-        setUser(user)
+        // setUser(user)
+        // navigate("/")
       })
   }
 
