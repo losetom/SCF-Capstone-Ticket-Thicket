@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
-  skip_before_action(:current_user)
+  # skip_before_action(:current_user)
 
-  # /login
+  # /LOGIN
   def create
     # find a user by username
     user = User.find_by(email: params[:email])
@@ -17,9 +17,9 @@ class SessionsController < ApplicationController
     end
   end
 
-  # /logout
+  # /LOGOUT
   def destroy
-    session.delete[:user_id]
+    session.delete :user_id
     # session[:user_id] = nil
     head :no_content
   end

@@ -2,6 +2,7 @@ class UsersController < ApplicationController
    # rescue_from(ActiveRecord::RecordInvalid, {with: :render_unprocessable} )
     before_action(:check_logged_in_user, only: [:index, :show])
     skip_before_action :check_logged_in_user, only: [:create, :show]
+    # skip_before_action :current_user, only: [:create]
 
     def check_logged_in_user
         @current_user = User.find_by(id: session[:user_id])
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
 
     def create
     # Create var - save newly created instance using the params
+    # binding.pry
         user = User.create!(user_params)
     # If user was created
         if user && user.valid?
@@ -27,8 +29,29 @@ class UsersController < ApplicationController
         end
     end
 
+    def update
+        user = User.find(params[:id])
+        # binding.pry
+        user.update(username: params[:_json])
+        render json: user, status: :ok
+    end
+
+    # / ME
     def show
-        render json: @current_user
+        if session[:user_id]
+            current_user = User.find_by(id: session[:user_id])                   
+            render json: current_user, status: :ok
+        else
+            render json: { errors: ["Not authorized"] }, status: :unauthorized
+        end
+        # render json: @current_user
+    end
+
+    def destroy
+        user = User.find(params[:id])
+        user.destroy
+        session.delete :user_id
+        head :no_content
     end
 
 
@@ -39,6 +62,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:username, :email, :password, :password_confirmation)
+        params.permit(:username, :email, :password, :password_confirmation)
     end
 end

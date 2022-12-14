@@ -7,6 +7,7 @@ import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
 import TicketCardContainer from "./components/TicketCardContainer";
 import NewTicket from "./components/NewTicket";
+import MyAccount from "./components/MyAccount";
 
 function App() {
   const { onUserLogin, errors, user, setUser} = useContext(UserContext);
@@ -25,6 +26,7 @@ function App() {
           <Route path="/login" element={<Login setUser={setUser}/>} />
           <Route path="/tickets" element={<TicketCardContainer />} />
           <Route path="/tickets/new" element={<NewTicket />} />
+          <Route path="/myaccount" element={<MyAccount />} />
           <Route path="/events" element={<h1>Events....</h1>} />
           <Route path="/artists" element={<h1>Artists...</h1>} />
         </Routes>

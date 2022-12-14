@@ -15,17 +15,22 @@ import {
   MDBDropdownItem,
   MDBCollapse,
 } from 'mdb-react-ui-kit';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'react'
+import { UserContext } from '../../context/UserProvider';
 
 function NavBar() {
     const [showBasic, setShowBasic] = useState(false)
+    const { setUser } = useContext(UserContext)
+    const navigate = useNavigate()
 
     const handleLogoutClick = () => {
         const config = {
             method: "DELETE"
         }
         fetch('/logout', config)
-        .then(response => console.log(response))
+        setUser({ username: "" })
+        navigate("/login")
     }
 
     return (
@@ -59,10 +64,11 @@ function NavBar() {
                       More...
                     </MDBDropdownToggle>
                     <MDBDropdownMenu>
-                      <MDBDropdownItem href='/tickets'>Tickets</MDBDropdownItem>
-                      <MDBDropdownItem link>Sell Tickets</MDBDropdownItem>
-                      <MDBDropdownItem onClick={handleLogoutClick}>Logout</MDBDropdownItem>
+                      <MDBDropdownItem><Link to="/tickets">Tickets</Link></MDBDropdownItem>
+                      {/* <MDBDropdownItem link>Sell Tickets</MDBDropdownItem> */}
+                      <MDBDropdownItem onClick={handleLogoutClick}><Link to="/logout">Logout</Link></MDBDropdownItem>
                       <MDBDropdownItem><Link to="/tickets/new">New Ticket</Link></MDBDropdownItem>
+                      <MDBDropdownItem><Link to="/myaccount">My Account</Link></MDBDropdownItem>
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 </MDBNavbarItem>
