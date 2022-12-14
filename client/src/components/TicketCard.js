@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 function TicketCard({ ticket }) {
-  function handleDelete() {
+  function handleDeleteClick() {
     fetch(`/tickets/${ticket.id}`, {
       method: "DELETE"
     })
@@ -14,8 +14,17 @@ function TicketCard({ ticket }) {
         response.json().then(console.log)
       }
     })
+    // function handleUpdateClick({ ticket }) {
+    //   fetch(`/tickets/${ticket.id}`, {
+    //     method: "PATCH",
+    //     headers: {
+    //       "Content-Type":"application/json"
+    //     },
+    //     body: JSON.stringify(ticket)
+    //   })
+    // }
   }
-  
+
   console.log(ticket);
   return (
     
@@ -39,8 +48,8 @@ function TicketCard({ ticket }) {
         <ListGroup.Item>Seat: {ticket.seat} </ListGroup.Item>
       </ListGroup>
       <Card.Body>
-        <Card.Link>Update</Card.Link>
-        <Card.Link onClick={handleDelete}>Delete</Card.Link>
+        <Card.Link> Update</Card.Link>
+        <Card.Link> <button onClick={handleDeleteClick} />Delete</Card.Link>
       </Card.Body>
     </Card>
 

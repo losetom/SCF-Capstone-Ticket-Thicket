@@ -15,6 +15,7 @@ import {
   MDBDropdownItem,
   MDBCollapse,
 } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
     const [showBasic, setShowBasic] = useState(false)
@@ -30,7 +31,7 @@ function NavBar() {
     return (
         <MDBNavbar expand='lg' light bgColor='light'>
           <MDBContainer fluid>
-            <MDBNavbarBrand href='#'>TicketThicket</MDBNavbarBrand>
+            <MDBNavbarBrand href='/'>TicketThicket</MDBNavbarBrand>
     
             <MDBNavbarToggler
               aria-controls='navbarSupportedContent'
@@ -44,7 +45,7 @@ function NavBar() {
             <MDBCollapse navbar show={showBasic}>
               <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
                 <MDBNavbarItem>
-                  <MDBNavbarLink active aria-current='page' href='/'>
+                  <MDBNavbarLink active aria-current='page' href='me'>
                     Home
                   </MDBNavbarLink>
                 </MDBNavbarItem>
@@ -61,6 +62,7 @@ function NavBar() {
                       <MDBDropdownItem href='/tickets'>Tickets</MDBDropdownItem>
                       <MDBDropdownItem link>Sell Tickets</MDBDropdownItem>
                       <MDBDropdownItem onClick={handleLogoutClick}>Logout</MDBDropdownItem>
+                      <MDBDropdownItem><Link to="/tickets/new">New Ticket</Link></MDBDropdownItem>
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 </MDBNavbarItem>

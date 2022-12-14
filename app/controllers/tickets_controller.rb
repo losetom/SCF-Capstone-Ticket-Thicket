@@ -6,6 +6,7 @@ class TicketsController < ApplicationController
 
     # /POST
     def create
+        binding.pry
         ticket = Ticket.create!(ticket_params)
         render json: ticket, status: :created
     end
