@@ -66,12 +66,33 @@ const UserProvider = ({ children }) => {
               });
             }
         });
-      }, [navigate]);
+      }, []);
 
+      const handleFormSubmit = (userData) => {
+        console.log(userData)
+        const config = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(userData)
+        }
+
+        fetch("/signup", config)
+            .then(response => {
+              if(response.ok){
+                response.json().then(user => {
+                  setUser(user)
+                  navigate("/")
+                })
+              } else {
+                response.json().then(({errors}) => setErrors(errors))
+              }
+            })
+            
+        }
 
 return( 
       <UserContext.Provider 
-        value={{user, setUser, tickets, setTickets, errors, setErrors, onUserLogin }} 
+        value={{user, setUser, tickets, setTickets, errors, setErrors, onUserLogin, handleFormSubmit }} 
       >
         {children}
       </UserContext.Provider>
