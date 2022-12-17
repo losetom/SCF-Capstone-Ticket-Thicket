@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { UserContext } from '../context/UserProvider'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import "./CSS/MyAccount.css"
 
 function MyAccount() {
     const { user } = useContext(UserContext)
@@ -35,12 +36,13 @@ function MyAccount() {
 
     }
   return (
-    <div>
-        <form onSubmit={handleUpdate}>
+    <div className='my-account'>
+        <form onSubmit={handleUpdate} className='my-account-form'>
+            <label>Update Username</label>
             <input type="text" name='name' value={userData.username} onChange={(e) => setUserData(e.target.value)}></input>
             <input type="submit"></input>
         </form>
-        <button onClick={handleDeleteClick} style={{backgroundColor: "red"}}>Delete My Account</button>
+        <button onClick={handleDeleteClick} style={{backgroundColor: "red", margin: "5%"}}>Delete My Account</button>
     </div>
     
   )

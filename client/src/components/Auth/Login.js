@@ -13,6 +13,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserProvider";
+import { v4 as uuidv4 } from "uuid";
 
 function Login({ setUser }) {
   const [loginCredentials, setLoginCredentials] = useState({
@@ -21,7 +22,7 @@ function Login({ setUser }) {
   });
   const navigate = useNavigate();
 
-  const { errors, setErrors } = useContext(UserContext);
+  const { errors, setErrors, handleLoginSubmit } = useContext(UserContext);
 
   const handleInputChange = (e) => {
     const stateCopy = { ...loginCredentials };
@@ -29,31 +30,31 @@ function Login({ setUser }) {
     setLoginCredentials(stateCopy);
   };
 
-  const handleLoginSubmit = () => {
-    const config = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(loginCredentials),
-    };
-    fetch("/login", config).then((response) => {
+  // const handleLoginSubmit = () => {
+  //   const config = {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(loginCredentials),
+  //   };
+  //   fetch("/login", config).then((response) => {
 
-      if (response.ok) {
-        response.json().then((user) => {
-          setUser(user);
-          navigate("/");
-        });
-      } else {
-        response.json().then((errors) => {
-          setErrors(errors);
-          setTimeout(() => setErrors([]), 3000)
-        });
-      }
-      setLoginCredentials({
-        email: "",
-        password: "",
-      });
-    });
-  };
+  //     if (response.ok) {
+  //       response.json().then((user) => {
+  //         setUser(user);
+  //         navigate("/");
+  //       });
+  //     } else {
+  //       response.json().then((errors) => {
+  //         setErrors(errors);
+  //         setTimeout(() => setErrors([errors]), 3000)
+  //       });
+  //     }
+  //     setLoginCredentials({
+  //       email: "",
+  //       password: "",
+  //     });
+  //   });
+  // };
 
   return (
     <MDBContainer fluid>
@@ -102,12 +103,12 @@ function Login({ setUser }) {
                 className="mx-2 px-5"
                 color="white"
                 size="lg"
-                onClick={handleLoginSubmit}
+                onClick={() => handleLoginSubmit(loginCredentials)}
               >
                 Login
               </MDBBtn>
 
-              {errors.map((err) => <div style={{color: "red"}}>{err}</div>)}
+              {errors.map((err) => <div key={uuidv4()} style={{color: "red"}}>{err}</div>)}
 
               <div className="d-flex flex-row mt-3 mb-5">
                 <MDBBtn

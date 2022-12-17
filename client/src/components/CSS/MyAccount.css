@@ -1,0 +1,23 @@
+.my-account{
+    border: 1px solid black;
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 2%;
+    height: 50vh;
+    width: 30vw;
+}
+.my-account-form{
+    /* border: 1px solid green; */
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.my-account-form * {
+    width: 100%;
+    margin: 1%;
+}

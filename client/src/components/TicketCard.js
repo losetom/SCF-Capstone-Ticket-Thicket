@@ -1,19 +1,18 @@
 import React from "react";
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
 
 function TicketCard({ ticket }) {
   function handleDeleteClick() {
     fetch(`/tickets/${ticket.id}`, {
-      method: "DELETE"
-    })
-    .then(response => {
-      if(response.ok){
-        response.json().then(console.log)
+      method: "DELETE",
+    }).then((response) => {
+      if (response.ok) {
+        response.json().then(console.log);
       } else {
-        response.json().then(console.log)
+        response.json().then(console.log);
       }
-    })
+    });
     // function handleUpdateClick({ ticket }) {
     //   fetch(`/tickets/${ticket.id}`, {
     //     method: "PATCH",
@@ -27,10 +26,7 @@ function TicketCard({ ticket }) {
 
   console.log(ticket);
   return (
-    
-
-
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: "18rem" }}>
       {/* <Card.Img variant="top" src="holder.js/100px180?text=Image cap" /> */}
       <Card.Body>
         <Card.Title>{ticket.name}</Card.Title>
@@ -46,13 +42,17 @@ function TicketCard({ ticket }) {
         <ListGroup.Item>Zip: {ticket.zip} </ListGroup.Item>
         <ListGroup.Item>Time: {ticket.time} </ListGroup.Item>
         <ListGroup.Item>Seat: {ticket.seat} </ListGroup.Item>
+        {/* <ListGroup.Item>Price: {ticket.seat} </ListGroup.Item> */}
       </ListGroup>
       <Card.Body>
-        <Card.Link> Update</Card.Link>
-        <Card.Link> <button onClick={handleDeleteClick} />Delete</Card.Link>
+        <Card.Link>Update</Card.Link>
+        <Card.Link>
+          {" "}
+          <button onClick={handleDeleteClick} />
+          Delete
+        </Card.Link>
       </Card.Body>
     </Card>
-
   );
 }
 

@@ -19,7 +19,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react'
 import { UserContext } from '../../context/UserProvider';
 
-function NavBar() {
+function NavBar({darkMode, setDarkMode}) {
     const [showBasic, setShowBasic] = useState(false)
     const { setUser } = useContext(UserContext)
     const navigate = useNavigate()
@@ -34,9 +34,9 @@ function NavBar() {
     }
 
     return (
-        <MDBNavbar expand='lg' light bgColor='light'>
+        <MDBNavbar style={{color: darkMode ? "white" : "black" }} expand='lg' light bgColor={darkMode ? 'dark' : 'light'}>
           <MDBContainer fluid>
-            <MDBNavbarBrand href='/'>TicketThicket</MDBNavbarBrand>
+            <MDBNavbarBrand style={{color: darkMode ? "white" : "black" }}>TicketThicket</MDBNavbarBrand>
     
             <MDBNavbarToggler
               aria-controls='navbarSupportedContent'
@@ -49,18 +49,26 @@ function NavBar() {
     
             <MDBCollapse navbar show={showBasic}>
               <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
-                <MDBNavbarItem>
-                  <MDBNavbarLink active aria-current='page' href='me'>
+                <div style={{
+                      // border: "1px solid red",
+                      paddingTop: "1%"
+
+                    }}>
+                <MDBNavbarItem >
+                  {/* <MDBNavbarLink active aria-current='page'> */}
+                    <Link to='/' >
                     Home
-                  </MDBNavbarLink>
+                    </Link>
+                  {/* </MDBNavbarLink> */}
                 </MDBNavbarItem>
+                </div>
                 <MDBNavbarItem>
                   <MDBNavbarLink href='logout' tabIndex={-1} aria-disabled='true' onClick={handleLogoutClick}></MDBNavbarLink>
                 </MDBNavbarItem>
     
                 <MDBNavbarItem>
                   <MDBDropdown>
-                    <MDBDropdownToggle tag='a' className='nav-link' role='button'>
+                    <MDBDropdownToggle tag='a' className='nav-link' role='button' style={{color: darkMode ? "white" : "black" }}>
                       More...
                     </MDBDropdownToggle>
                     <MDBDropdownMenu>
@@ -80,6 +88,7 @@ function NavBar() {
                 <MDBBtn color='primary'>Search</MDBBtn>
               </form>
             </MDBCollapse>
+            <button onClick={() => setDarkMode(!darkMode)}>Toggle Dark Mode</button>
           </MDBContainer>
         </MDBNavbar>
       );

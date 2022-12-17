@@ -12,6 +12,7 @@ function NewTicket() {
     const [zip, setZip] = useState("")
     const [time, setTime] = useState("")
     const [seat, setSeat] = useState("")
+    const [price, setPrice] = useState("")
     const [errors, setErrors] = useState("")
 
     function onSubmit(e) {
@@ -24,6 +25,7 @@ function NewTicket() {
             zip,
             time,
             seat,
+            price
         }
 
         fetch('/tickets', {
@@ -46,8 +48,8 @@ function NewTicket() {
     <Form onSubmit={onSubmit}>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridConcertName">
-          <Form.Label>Name</Form.Label>
-          <Form.Control type="name" placeholder="Enter Concert Name..." value={name} onChange={(e) => setName(e.target.value)}/>
+          <Form.Label>Event Name</Form.Label>
+          <Form.Control type="name" placeholder="Enter Event Name..." value={name} onChange={(e) => setName(e.target.value)}/>
         </Form.Group>
 
         {/* <Form.Group as={Col} controlId="formGridPassword">
@@ -66,7 +68,7 @@ function NewTicket() {
         <Form.Control placeholder="Apartment, studio, or floor" />
       </Form.Group> */}
 
-      <Row className="mb-3">
+      {/* <Row className="mb-3"> */}
         <Form.Group as={Col} controlId="formGridCity">
           <Form.Label>City</Form.Label>
           <Form.Control placeholder='City...' value={city} onChange={(e) => setCity(e.target.value)}/>
@@ -102,7 +104,12 @@ function NewTicket() {
           <Form.Label>Time</Form.Label>
           <Form.Control placeholder='Event Time...' value={time} onChange={(e) => setTime(e.target.value)}/>
         </Form.Group>
-      </Row>
+
+        <Form.Group as={Col} controlId="formGridTime">
+          <Form.Label>Price</Form.Label>
+          <Form.Control placeholder='Ticket Price...' value={price} onChange={(e) => setPrice(e.target.value)}/>
+        </Form.Group>
+      {/* </Row> */}
 
       <Form.Group className="mb-3" id="formGridCheckbox">
         <Form.Check type="checkbox" label="I understand the terms of service" />

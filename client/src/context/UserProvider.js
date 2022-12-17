@@ -30,7 +30,7 @@ const UserProvider = ({ children }) => {
         });
     }
 
-    const onUserLogin = (credentials) => {
+    const handleLoginSubmit = (credentials) => {
       const config = {
         method: "POST",
         headers: {
@@ -43,10 +43,11 @@ const UserProvider = ({ children }) => {
           resp.json().then((user) => {
             setUser({ ...user });
             fetchTickets()
+            navigate('/')
           });
         } else {
           resp.json().then(({ errors }) => {
-            setErrors([...errors]);
+            handleErrors([...errors]);
           });
         }
       });
@@ -61,7 +62,7 @@ const UserProvider = ({ children }) => {
                 });
           } else {
             response.json().then(({errors}) => {
-              setErrors([...errors])
+              // setErrors([...errors])
               navigate("/login")
               });
             }
@@ -84,7 +85,7 @@ const UserProvider = ({ children }) => {
                   navigate("/")
                 })
               } else {
-                response.json().then(({errors}) => setErrors(errors))
+                response.json().then(({errors}) => setErrors([...errors]))
               }
             })
             
@@ -92,7 +93,7 @@ const UserProvider = ({ children }) => {
 
 return( 
       <UserContext.Provider 
-        value={{user, setUser, tickets, setTickets, errors, setErrors, onUserLogin, handleFormSubmit }} 
+        value={{user, setUser, tickets, setTickets, errors, setErrors, handleLoginSubmit, handleFormSubmit }} 
       >
         {children}
       </UserContext.Provider>
