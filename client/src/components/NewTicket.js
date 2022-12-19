@@ -12,7 +12,7 @@ function NewTicket() {
     const [zip, setZip] = useState("")
     const [time, setTime] = useState("")
     const [seat, setSeat] = useState("")
-    const [price, setPrice] = useState("")
+    // const [price, setPrice] = useState("")
     const [errors, setErrors] = useState("")
 
     function onSubmit(e) {
@@ -25,7 +25,7 @@ function NewTicket() {
             zip,
             time,
             seat,
-            price
+            // price
         }
 
         fetch('/tickets', {
@@ -105,11 +105,13 @@ function NewTicket() {
           <Form.Control placeholder='Event Time...' value={time} onChange={(e) => setTime(e.target.value)}/>
         </Form.Group>
 
-        <Form.Group as={Col} controlId="formGridTime">
+        {/* <Form.Group as={Col} controlId="formGridTime">
           <Form.Label>Price</Form.Label>
           <Form.Control placeholder='Ticket Price...' value={price} onChange={(e) => setPrice(e.target.value)}/>
-        </Form.Group>
+        </Form.Group> */}
       {/* </Row> */}
+
+        <br></br>
 
       <Form.Group className="mb-3" id="formGridCheckbox">
         <Form.Check type="checkbox" label="I understand the terms of service" />

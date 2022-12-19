@@ -6,8 +6,12 @@ class TicketsController < ApplicationController
 
     # /POST
     def create
-        binding.pry
-        ticket = Ticket.create!(ticket_params)
+        # binding.pry
+        event = Event.create(name: ticket_params[:name])
+        ticket = Ticket.new(ticket_params)
+        ticket.event_id = event.id
+        ticket.user_id = session[:user_id]
+        ticket.save
         render json: ticket, status: :created
     end
 
@@ -34,6 +38,7 @@ class TicketsController < ApplicationController
 
     # /DELETE
     def destroy
+        # binding.pry
         ticket = Ticket.find_by(id: params[:id])
         if ticket 
             ticket.destroy

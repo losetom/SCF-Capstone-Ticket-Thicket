@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import {
   MDBBtn,
   MDBContainer,
@@ -47,11 +47,11 @@ function Signup({ setUser }) {
     //         .catch(err => console.log(err))
     // }
     return (
-        <MDBContainer fluid className='d-flex align-items-center justify-content-center bg-image' style={{backgroundImage: 'url(https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp)'}}>
+        <MDBContainer fluid className='d-flex align-items-center justify-content-center bg-image' style={{backgroundImage: 'url(https://media.istockphoto.com/id/479882058/photo/tickets.jpg?s=612x612&w=0&k=20&c=f99i-RnFVbI-URmhGBWZV9A6l5wtRbZ-dXKogBGC2s0=)'}}>
           <div className='mask gradient-custom-3'>{errors.map(err => <p style={{backgroundColor: "red"}}>{err}</p>)}</div>
           <MDBCard className='m-5' style={{maxWidth: '600px'}}>
             <MDBCardBody className='px-5'>
-              <h2 className="text-uppercase text-center mb-5">Create an account</h2>
+              <b><em><h2 className="text-uppercase text-center mb-5">Create an account</h2></em></b>
               <MDBInput wrapperClass='mb-4' label='Your Name' size='lg' id='form1' type='text' value={userData.username} name='username' onChange={handleInputChange} required/>
               <MDBInput wrapperClass='mb-4' label='Your Email' size='lg' id='form2' type='email' value={userData.email} name='email' onChange={handleInputChange} required/>
               <MDBInput wrapperClass='mb-4' label='Password' size='lg' id='form3' type='password' value={userData.password} name='password' onChange={handleInputChange} required/>
@@ -60,6 +60,16 @@ function Signup({ setUser }) {
                 <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I agree all statements in Terms of service' />
               </div>
               <MDBBtn className='mb-4 w-100 gradient-custom-4' size='lg' onClick={() => handleFormSubmit(userData)}>Register</MDBBtn>
+
+              <div>
+                <p className="mb-0">
+                  Already have an account?{" "}
+                  <Link to="/login" >
+                    Login
+                  </Link>
+                </p>
+              </div>
+
             </MDBCardBody>
           </MDBCard>
         </MDBContainer>

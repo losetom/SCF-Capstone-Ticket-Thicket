@@ -6,13 +6,18 @@ import { UserContext } from "../context/UserProvider";
 import "./CSS/TicketCardContainer.css";
 
 function TicketCardContainer() {
-  const { tickets } = useContext(UserContext);
+  const { tickets, setTickets } = useContext(UserContext);
+  
   return (
     <>
       <h1 className="my-tickets-header">My Tickets</h1>
       <div className="card-container">
         {tickets.map((ticket) => {
-          return <TicketCard key={uuidv4()} ticket={ticket} />;
+          return <TicketCard 
+          setTickets={setTickets} 
+          key={uuidv4()} 
+          ticket={ticket} 
+          tickets={tickets} />;
         })}
       </div>
     </>
