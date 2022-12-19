@@ -1,16 +1,25 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import { Link } from 'react-router-dom'
 
-function TicketCard({ ticket }) {
+function TicketCard({ setTickets, ticket, tickets }) {
   function handleDeleteClick() {
     fetch(`/tickets/${ticket.id}`, {
       method: "DELETE",
     }).then((response) => {
       if (response.ok) {
-        response.json().then(console.log);
+        // response.json().then(console.log);
+        let ticketsCopy = JSON.parse(JSON.stringify(tickets))
+        ticketsCopy = ticketsCopy.filter(t => {
+          
+          return t.id !== ticket.id
+        })
+        // debugger
+        setTickets(ticketsCopy)
+
       } else {
-        response.json().then(console.log);
+        // response.json().then(console.log);
       }
     });
     // function handleUpdateClick({ ticket }) {
@@ -45,11 +54,15 @@ function TicketCard({ ticket }) {
         {/* <ListGroup.Item>Price: {ticket.seat} </ListGroup.Item> */}
       </ListGroup>
       <Card.Body>
-        <Card.Link>Update</Card.Link>
+        <Card.Link>
+          Update
+        </Card.Link>
         <Card.Link>
           {" "}
-          <button onClick={handleDeleteClick} />
+          <button onClick={handleDeleteClick}>
           Delete
+          </button>
+         
         </Card.Link>
       </Card.Body>
     </Card>

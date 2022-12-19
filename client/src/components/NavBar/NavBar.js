@@ -80,13 +80,17 @@ function NavBar({darkMode, setDarkMode}) {
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 </MDBNavbarItem>
+
+                
     
               </MDBNavbarNav>
     
               <form className='d-flex input-group w-auto'>
-                <input type='search' className='form-control' placeholder='Type query' aria-label='Search' />
+                <input type='search' className='form-control' placeholder='Search for artist, events, or venues...' aria-label='Search' />
                 <MDBBtn color='primary'>Search</MDBBtn>
               </form>
+
+              
             </MDBCollapse>
             <button onClick={() => setDarkMode(!darkMode)}>Toggle Dark Mode</button>
           </MDBContainer>

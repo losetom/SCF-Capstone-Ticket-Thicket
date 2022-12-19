@@ -201,27 +201,27 @@ function Footer() {
               </MDBCol>
 
               <MDBCol lg="3" md="6" className="mb-4 mb-md-0">
-                <em><h5 className="text-uppercase">Get The Mobile App</h5></em>
+                <em><h5 className="text-uppercase">Follow Us!</h5></em>
 
                 <ul className="list-unstyled mb-0">
                   <li>
                     <a href="#!" className="text-white">
-                      Link 1
+                      Facebook
                     </a>
                   </li>
                   <li>
                     <a href="#!" className="text-white">
-                      Link 2
+                      Twitter
                     </a>
                   </li>
                   <li>
                     <a href="#!" className="text-white">
-                      Link 3
+                      Youtube
                     </a>
                   </li>
                   <li>
                     <a href="#!" className="text-white">
-                      Link 4
+                      Instagram
                     </a>
                   </li>
                 </ul>

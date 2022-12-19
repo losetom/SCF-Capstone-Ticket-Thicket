@@ -110,34 +110,7 @@ function Login({ setUser }) {
 
               {errors.map((err) => <div key={uuidv4()} style={{color: "red"}}>{err}</div>)}
 
-              <div className="d-flex flex-row mt-3 mb-5">
-                <MDBBtn
-                  tag="a"
-                  color="none"
-                  className="m-3"
-                  style={{ color: "white" }}
-                >
-                  <MDBIcon fab icon="facebook-f" size="lg" />
-                </MDBBtn>
-
-                <MDBBtn
-                  tag="a"
-                  color="none"
-                  className="m-3"
-                  style={{ color: "white" }}
-                >
-                  <MDBIcon fab icon="twitter" size="lg" />
-                </MDBBtn>
-
-                <MDBBtn
-                  tag="a"
-                  color="none"
-                  className="m-3"
-                  style={{ color: "white" }}
-                >
-                  <MDBIcon fab icon="google" size="lg" />
-                </MDBBtn>
-              </div>
+              <br></br>
 
               <div>
                 <p className="mb-0">

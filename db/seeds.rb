@@ -81,4 +81,4 @@ event_venues = ["Madison Square Garden", "Barclay's Center", "Citi Field", "Yank
     end
 end
 
-puts "Seed Planted!!!"
+puts "Seeds Planted!"

@@ -17,8 +17,7 @@ function Home({darkMode}) {
         <h1>Welcome {user.username}!</h1>
         <h3>About</h3>
         <h3>
-          Welcome to TicketThicket - The One Stop Shop For Everything
-          Entertaining
+           Buy, Sell, and Trade Millions of Tickets For Almost Live Any Event!
         </h3>
       </div>
       {/* <Footer /> */}
