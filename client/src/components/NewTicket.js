@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import { useNavigate } from 'react-router-dom';
 
 function NewTicket() {
     const [name, setName] = useState("");
@@ -14,6 +15,7 @@ function NewTicket() {
     const [seat, setSeat] = useState("")
     // const [price, setPrice] = useState("")
     const [errors, setErrors] = useState("")
+    const navigate = useNavigate()
 
     function onSubmit(e) {
         e.preventDefault()
@@ -42,10 +44,12 @@ function NewTicket() {
                 response.json().then(e => setErrors(errors))
             }
         })
+        navigate("/tickets")
     }
 
   return (
     <Form onSubmit={onSubmit}>
+       <em> <b><h1>Sell Ticket</h1></b> </em>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridConcertName">
           <Form.Label>Event Name</Form.Label>

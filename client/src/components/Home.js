@@ -15,10 +15,11 @@ function Home({darkMode}) {
         {/* <NavBar /> */}
         {/* <img src='https://static.vecteezy.com/system/resources/previews/003/284/622/non_2x/retro-ticket-in-vintage-style-vector.jpg'></img> */}
         <h1>Welcome {user.username}!</h1>
-        <h3>About</h3>
-        <h3>
-           Buy, Sell, and Trade Millions of Tickets For Almost Live Any Event!
-        </h3>
+        <div style={{color: "blue"}}>
+            <h3>
+                Buy, Sell, and Trade Millions of Tickets For Almost Any Live Event!
+            </h3>
+        </div>
       </div>
       {/* <Footer /> */}
     </>

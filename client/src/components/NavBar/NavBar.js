@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaBeer } from 'react-icons/fa';
 import {
   MDBContainer,
   MDBNavbar,
@@ -15,7 +16,7 @@ import {
   MDBDropdownItem,
   MDBCollapse,
 } from 'mdb-react-ui-kit';
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useContext } from 'react'
 import { UserContext } from '../../context/UserProvider';
 
@@ -56,9 +57,9 @@ function NavBar({darkMode, setDarkMode}) {
                     }}>
                 <MDBNavbarItem >
                   {/* <MDBNavbarLink active aria-current='page'> */}
-                    <Link to='/' >
+                    <NavLink to='/' >
                     Home
-                    </Link>
+                    </NavLink>
                   {/* </MDBNavbarLink> */}
                 </MDBNavbarItem>
                 </div>
@@ -72,11 +73,11 @@ function NavBar({darkMode, setDarkMode}) {
                       More...
                     </MDBDropdownToggle>
                     <MDBDropdownMenu>
-                      <MDBDropdownItem><Link to="/tickets">Tickets</Link></MDBDropdownItem>
+                      <MDBDropdownItem><NavLink to="/tickets">Tickets</NavLink></MDBDropdownItem>
                       {/* <MDBDropdownItem link>Sell Tickets</MDBDropdownItem> */}
-                      <MDBDropdownItem onClick={handleLogoutClick}><Link to="/logout">Logout</Link></MDBDropdownItem>
-                      <MDBDropdownItem><Link to="/tickets/new">New Ticket</Link></MDBDropdownItem>
-                      <MDBDropdownItem><Link to="/myaccount">My Account</Link></MDBDropdownItem>
+                      <MDBDropdownItem onClick={handleLogoutClick}><NavLink to="/logout">Logout</NavLink></MDBDropdownItem>
+                      <MDBDropdownItem><NavLink to="/tickets/new">New Ticket</NavLink></MDBDropdownItem>
+                      <MDBDropdownItem><NavLink to="/myaccount">My Account</NavLink></MDBDropdownItem>
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 </MDBNavbarItem>
