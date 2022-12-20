@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import UserProvider, { UserContext } from '../context/UserProvider';
+import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import { useNavigate } from 'react-router-dom';
 
 function NewTicket() {
     const [name, setName] = useState("");
@@ -12,8 +15,11 @@ function NewTicket() {
     const [zip, setZip] = useState("")
     const [time, setTime] = useState("")
     const [seat, setSeat] = useState("")
-    // const [price, setPrice] = useState("")
+    const [price, setPrice] = useState("")
     const [errors, setErrors] = useState("")
+
+    const { tickets, setTickets } = useContext(UserContext)
+    const navigate = useNavigate()
 
     function onSubmit(e) {
         e.preventDefault()
@@ -25,7 +31,7 @@ function NewTicket() {
             zip,
             time,
             seat,
-            // price
+            price
         }
 
         fetch('/tickets', {
@@ -37,7 +43,12 @@ function NewTicket() {
         })
         .then(response => {
             if(response.ok) {
-                response.json().then(console.log)
+                response.json().then((ticket) => {
+                    const ticketsCopy = JSON.parse(JSON.stringify(tickets))
+                    ticketsCopy.push(ticket)
+                    setTickets(ticketsCopy)
+                    navigate("/tickets")
+                })
             } else {
                 response.json().then(e => setErrors(errors))
             }
@@ -46,6 +57,7 @@ function NewTicket() {
 
   return (
     <Form onSubmit={onSubmit}>
+        <header style={{color: "blue"}}><em><h1>Sell Ticket</h1></em></header>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridConcertName">
           <Form.Label>Event Name</Form.Label>
@@ -105,10 +117,10 @@ function NewTicket() {
           <Form.Control placeholder='Event Time...' value={time} onChange={(e) => setTime(e.target.value)}/>
         </Form.Group>
 
-        {/* <Form.Group as={Col} controlId="formGridTime">
+        <Form.Group as={Col} controlId="formGridPrice">
           <Form.Label>Price</Form.Label>
           <Form.Control placeholder='Ticket Price...' value={price} onChange={(e) => setPrice(e.target.value)}/>
-        </Form.Group> */}
+        </Form.Group>
       {/* </Row> */}
 
         <br></br>

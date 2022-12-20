@@ -66,6 +66,7 @@ event_venues = ["Madison Square Garden", "Barclay's Center", "Citi Field", "Yank
 
     3.times do
         ticket_name = "#{faker_kpop.sample} concert"
+        price = rand(20..10000)
         seat = rand(1..20000)
         ticket_time = Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long)
         ticket = Ticket.new(
@@ -73,6 +74,7 @@ event_venues = ["Madison Square Garden", "Barclay's Center", "Citi Field", "Yank
         )
         ticket.name = ticket_name
         ticket.seat = seat
+        ticket.price = price
         ticket.event_id = event.id
         ticket.user_id = user.id
         ticket.time = ticket_time

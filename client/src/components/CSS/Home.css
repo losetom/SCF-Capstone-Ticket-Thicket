@@ -1,4 +1,13 @@
 .home {
+    height: 15vh;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/003/284/622/non_2x/retro-ticket-in-vintage-style-vector.jpg');
+}
+
+.home-map {
+    margin-top: 2%;
     height: 80vh;
-    /* background-image: url('https://static.vecteezy.com/system/resources/previews/003/284/622/non_2x/retro-ticket-in-vintage-style-vector.jpg'); */
+    width: 75%;
+    display: flex;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/003/284/622/non_2x/retro-ticket-in-vintage-style-vector.jpg');
+
 }

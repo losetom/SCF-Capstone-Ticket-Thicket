@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 function TicketCard({ setTickets, ticket, tickets }) {
   function handleDeleteClick() {
@@ -10,19 +10,17 @@ function TicketCard({ setTickets, ticket, tickets }) {
     }).then((response) => {
       if (response.ok) {
         // response.json().then(console.log);
-        let ticketsCopy = JSON.parse(JSON.stringify(tickets))
-        ticketsCopy = ticketsCopy.filter(t => {
-          
-          return t.id !== ticket.id
-        })
+        let ticketsCopy = JSON.parse(JSON.stringify(tickets));
+        ticketsCopy = ticketsCopy.filter((t) => {
+          return t.id !== ticket.id;
+        });
         // debugger
-        setTickets(ticketsCopy)
-
+        setTickets(ticketsCopy);
       } else {
         // response.json().then(console.log);
       }
     });
-    // function handleUpdateClick({ ticket }) {
+    // function handleUpdateClick() {
     //   fetch(`/tickets/${ticket.id}`, {
     //     method: "PATCH",
     //     headers: {
@@ -33,7 +31,7 @@ function TicketCard({ setTickets, ticket, tickets }) {
     // }
   }
 
-  console.log(ticket);
+  // console.log(ticket);
   return (
     <Card style={{ width: "18rem" }}>
       {/* <Card.Img variant="top" src="holder.js/100px180?text=Image cap" /> */}
@@ -51,18 +49,16 @@ function TicketCard({ setTickets, ticket, tickets }) {
         <ListGroup.Item>Zip: {ticket.zip} </ListGroup.Item>
         <ListGroup.Item>Time: {ticket.time} </ListGroup.Item>
         <ListGroup.Item>Seat: {ticket.seat} </ListGroup.Item>
+        <ListGroup.Item>Price: {ticket.price} </ListGroup.Item>
         {/* <ListGroup.Item>Price: {ticket.seat} </ListGroup.Item> */}
       </ListGroup>
       <Card.Body>
         <Card.Link>
-          Update
+          {/* <button onClick={handleUpdateClick}>Update</button> */}
         </Card.Link>
         <Card.Link>
           {" "}
-          <button onClick={handleDeleteClick}>
-          Delete
-          </button>
-         
+          <button onClick={handleDeleteClick}>Delete</button>
         </Card.Link>
       </Card.Body>
     </Card>
