@@ -11,17 +11,17 @@ function Home({darkMode}) {
 
   return (
     <>
-      <div className="home" style={{border: "1px solid red", backgroundColor: darkMode ? "black" : "white" }}>
+      <div className="home" style={{backgroundColor: darkMode ? "black" : "white" }}>
         {/* <NavBar /> */}
         {/* <img src='https://static.vecteezy.com/system/resources/previews/003/284/622/non_2x/retro-ticket-in-vintage-style-vector.jpg'></img> */}
         <h1>Welcome {user.username}!</h1>
-        <h3 style={{border: "1px solid red"}}>
+        <h3>
            Buy, Sell, and Trade Millions of Tickets For Almost Live Any Event!
         </h3>
       </div>
 
-      <div className="home-map" style={{border: "1px solid red"}}>
-        
+      <div className="home-map">
+        <img style={{width: "100%"}} src="https://static.vecteezy.com/system/resources/previews/003/284/622/non_2x/retro-ticket-in-vintage-style-vector.jpg"></img>
       </div>
       {/* <Footer /> */}
     </>

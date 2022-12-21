@@ -15,9 +15,10 @@ import {
   MDBDropdownItem,
   MDBCollapse,
 } from 'mdb-react-ui-kit';
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useContext } from 'react'
 import { UserContext } from '../../context/UserProvider';
+import "../CSS/NavBar.css"
 
 function NavBar({darkMode, setDarkMode}) {
     const [showBasic, setShowBasic] = useState(false)
@@ -56,9 +57,9 @@ function NavBar({darkMode, setDarkMode}) {
                     }}>
                 <MDBNavbarItem >
                   {/* <MDBNavbarLink active aria-current='page'> */}
-                    <Link to='/' >
+                    <NavLink to='/' >
                     Home
-                    </Link>
+                    </NavLink>
                   {/* </MDBNavbarLink> */}
                 </MDBNavbarItem>
                 </div>
@@ -72,13 +73,31 @@ function NavBar({darkMode, setDarkMode}) {
                       More...
                     </MDBDropdownToggle>
                     <MDBDropdownMenu>
-                      <MDBDropdownItem><Link to="/tickets">Tickets</Link></MDBDropdownItem>
+                      <MDBDropdownItem><NavLink to="/tickets">Tickets</NavLink></MDBDropdownItem>
                       {/* <MDBDropdownItem link>Sell Tickets</MDBDropdownItem> */}
-                      <MDBDropdownItem onClick={handleLogoutClick}><Link to="/logout">Logout</Link></MDBDropdownItem>
-                      <MDBDropdownItem><Link to="/tickets/new">New Ticket</Link></MDBDropdownItem>
-                      <MDBDropdownItem><Link to="/myaccount">My Account</Link></MDBDropdownItem>
+                      <MDBDropdownItem onClick={handleLogoutClick}><NavLink to="/logout">Logout</NavLink></MDBDropdownItem>
+                      <MDBDropdownItem><NavLink to="/tickets/new">New Ticket</NavLink></MDBDropdownItem>
+                      <MDBDropdownItem><NavLink to="/myaccount">My Account</NavLink></MDBDropdownItem>
                     </MDBDropdownMenu>
                   </MDBDropdown>
+                </MDBNavbarItem>
+
+                <MDBNavbarItem className="about-link">
+                    <NavLink>
+                      About
+                    </NavLink>
+                </MDBNavbarItem>
+
+                <MDBNavbarItem className='services-link'>
+                    <NavLink>
+                      Services
+                    </NavLink>
+                </MDBNavbarItem>
+
+                <MDBNavbarItem className='contact-link'>
+                    <NavLink>
+                      Contact Us
+                    </NavLink>
                 </MDBNavbarItem>
 
                 

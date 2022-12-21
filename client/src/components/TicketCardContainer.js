@@ -10,7 +10,7 @@ function TicketCardContainer() {
   
   return (
     <>
-      <h1 className="my-tickets-header">My Tickets</h1>
+      <h1 style={{color: "blue"}} className="my-tickets-header">My Tickets</h1>
       <div className="card-container">
         {tickets.map((ticket) => {
           return <TicketCard 
