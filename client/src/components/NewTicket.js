@@ -57,7 +57,9 @@ function NewTicket() {
 
   return (
     <Form onSubmit={onSubmit}>
+        <br></br>
         <header style={{color: "blue"}}><em><h1>Sell Ticket</h1></em></header>
+        
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridConcertName">
           <Form.Label>Event Name</Form.Label>

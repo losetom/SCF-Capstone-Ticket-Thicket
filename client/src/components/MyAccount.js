@@ -42,7 +42,7 @@ function MyAccount() {
             <input type="text" name='name' value={userData.username} onChange={(e) => setUserData(e.target.value)}></input>
             <input type="submit"></input>
         </form>
-        <button onClick={handleDeleteClick} style={{backgroundColor: "red", margin: "5%"}}>Delete My Account</button>
+        <button onClick={handleDeleteClick} style={{backgroundColor: "red", margin: "5%"}}><b>Delete My Account</b></button>
     </div>
     
   )

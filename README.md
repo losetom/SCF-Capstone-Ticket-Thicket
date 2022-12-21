@@ -1,24 +1,25 @@
-# README
+# TicketThicket Web Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to the TicketThicket ! 
 
-Things you may want to cover:
+This application is my SCF Coding Academy x Flatiron School Capstone software engineering project
 
-* Ruby version
+ - DESCRIPTION - 
 
-* System dependencies
+It is meant to be a clone of Ticketmaster's website at its core.
 
-* Configuration
+As a user, you can signup to create an account unique to you. 
 
-* Database creation
+As an official user, you can buy, sell, and trade tickets to live events all around the world.
 
-* Database initialization
 
-* How to run the test suite
+ - INSTALLATION - 
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Fork this respository and clone it to your local machine. 
+2. To clone, copy the SSH key in the green "<>Code" button
+3. Type ` git clone [copy of URL] ` in the directory of your choosing
+4. 
 
-* Deployment instructions
 
-* ...
+
+

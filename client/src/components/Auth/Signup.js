@@ -47,7 +47,7 @@ function Signup({ setUser }) {
     //         .catch(err => console.log(err))
     // }
     return (
-        <MDBContainer fluid className='d-flex align-items-center justify-content-center bg-image' style={{backgroundImage: 'url(https://media.istockphoto.com/id/479882058/photo/tickets.jpg?s=612x612&w=0&k=20&c=f99i-RnFVbI-URmhGBWZV9A6l5wtRbZ-dXKogBGC2s0=)'}}>
+        <MDBContainer fluid className='d-flex align-items-center justify-content-center bg-image' style={{height: "100vh", backgroundImage: 'url(https://media.istockphoto.com/id/479882058/photo/tickets.jpg?s=612x612&w=0&k=20&c=f99i-RnFVbI-URmhGBWZV9A6l5wtRbZ-dXKogBGC2s0=)'}}>
           <div className='mask gradient-custom-3'>{errors.map(err => <p style={{backgroundColor: "red"}}>{err}</p>)}</div>
           <MDBCard className='m-5' style={{maxWidth: '600px'}}>
             <MDBCardBody className='px-5'>

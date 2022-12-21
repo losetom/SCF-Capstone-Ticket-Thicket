@@ -14,7 +14,11 @@ function Home({darkMode}) {
       <div className="home" style={{backgroundColor: darkMode ? "black" : "white" }}>
         {/* <NavBar /> */}
         {/* <img src='https://static.vecteezy.com/system/resources/previews/003/284/622/non_2x/retro-ticket-in-vintage-style-vector.jpg'></img> */}
+        <br></br>
+
         <h1>Welcome {user.username}!</h1>
+        
+        <br></br>
         <h3>
            Buy, Sell, and Trade Millions of Tickets For Almost Live Any Event!
         </h3>

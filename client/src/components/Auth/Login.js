@@ -57,8 +57,8 @@ function Login({ setUser }) {
   // };
 
   return (
-    <MDBContainer fluid>
-      <MDBRow className="d-flex justify-content-center align-items-center h-100">
+    <MDBContainer fluid className='d-flex align-items-center justify-content-center bg-image' style={{height: "100vh", backgroundImage: 'url(https://www.pennmedicine.org/-/media/images/miscellaneous/random%20generic%20photos/boardwalk_carnival.ashx?mw=620&mh=408)'}}>
+      <MDBRow className="d-flex justify-content-center align-items-center h-100" >
         <MDBCol col="12">
           <MDBCard
             className="bg-dark text-white my-5 mx-auto"
