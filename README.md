@@ -43,6 +43,7 @@ As an official user, you can buy, sell, and trade tickets to live events all aro
 
 6. Mobile optimization 
 
+7. Maps of venues to select seats and further build out tickets
 
 
 
