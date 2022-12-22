@@ -3,12 +3,49 @@
     background-image: url('https://static.vecteezy.com/system/resources/previews/003/284/622/non_2x/retro-ticket-in-vintage-style-vector.jpg');
 }
 
-.home-map {
+.home-image {
+    /* border: 1px solid red; */
     margin-top: 2%;
-    height: 80vh;
+    height: 100vh;
     width: 75%;
     display: flex;
     justify-content: center;
     /* background-image: url('https://static.vecteezy.com/system/resources/previews/003/284/622/non_2x/retro-ticket-in-vintage-style-vector.jpg'); */
 
+}
+
+.category-browse {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-self: left;
+    margin-bottom: 10%;
+    margin-top: 5%;
+}
+
+.sports-browse {
+    /* border: 1px solid red; */
+    justify-self: left;
+    margin-bottom: 10%;
+}
+
+.concerts-browse {
+    /* border: 1px solid red; */
+    justify-self: left;
+    margin-bottom: 10%
+}
+
+.arts-browse {
+    /* border: 1px solid red; */
+    justify-self: left;
+    margin-bottom: 10%
+}
+
+.search-div {
+    /* border: 1px solid red; */
+    display: flex;
+}
+
+.input-group {
+    /* border: 1px solid red; */
+    size: 70
 }

@@ -52,8 +52,8 @@ function NavBar({darkMode, setDarkMode}) {
               <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
                 <div style={{
                       // border: "1px solid red",
-                      paddingTop: "1%"
-
+                      paddingTop: "1%",
+                      marginBottom: "1%"
                     }}>
                 <MDBNavbarItem >
                   {/* <MDBNavbarLink active aria-current='page'> */}
@@ -69,7 +69,7 @@ function NavBar({darkMode, setDarkMode}) {
     
                 <MDBNavbarItem>
                   <MDBDropdown>
-                    <MDBDropdownToggle tag='a' className='nav-link' role='button' style={{color: darkMode ? "white" : "black" }}>
+                    <MDBDropdownToggle tag='a' className='nav-link' role='button' style={{color: darkMode ? "white" : "black", marginTop: "5%" }}>
                       More...
                     </MDBDropdownToggle>
                     <MDBDropdownMenu>
@@ -104,10 +104,10 @@ function NavBar({darkMode, setDarkMode}) {
     
               </MDBNavbarNav>
     
-              <form className='d-flex input-group w-auto'>
+              {/* <form className='d-flex input-group w-auto'>
                 <input type='search' className='form-control' placeholder='Search for artist, events, or venues...' aria-label='Search' />
                 <MDBBtn color='primary'>Search</MDBBtn>
-              </form>
+              </form> */}
 
               
             </MDBCollapse>

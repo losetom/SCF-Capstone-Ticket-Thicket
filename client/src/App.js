@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 
+
 function App() {
   const { onUserLogin, errors, user, setUser } = useContext(UserContext);
   const [darkMode, setDarkMode] = useState(false)
