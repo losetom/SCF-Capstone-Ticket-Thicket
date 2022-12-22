@@ -21,6 +21,10 @@ function Home({darkMode}) {
             </h3>
         </div>
       </div>
+
+      <div className="category-browse" style={{justifyContent: "left"}}>
+        <h4>Browse by category...</h4>
+      </div>
       {/* <Footer /> */}
     </>
   );
